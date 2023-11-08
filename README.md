@@ -1,0 +1,45 @@
+# ON LEARNING HOW REACT CONTEXT API WORKS
+
+## THEME SWITCHER
+
+```
+THIS IS A BASIC APPLICATION ON SWITCHING THE UI THEME FROM LIGHT MODE TO DARK OR VICE VERSA
+```
+
+# USAGE
+
+## `theme.js` FILE
+
+- CREATED A CONTEXT CALLED `theme.js`
+- WHERE I CREATED A CONTEXT CALLED `ThemeContext`
+- WHICH HAS A VARIBALE CALLED `themeMode` WITH A DEFAULT VALUE OF `light`
+- AND TWO METHODS THAT CAN AVAILABLE TO WHOLE CONTEXT
+- `darkTheme`
+- `lightTheme`
+
+- IN THE SAME FILE I ALSO EXPORTED THE `ThemeProvider`
+
+- MADE USE OF `useContext` HOOK AND PASSED MY `ThemeContext` CONTEXT INTO IT
+
+## `App.jsx` FILE
+
+- MADE USE OF `useState` AND PASSED `themeMode` FROM THE `ThemeProvider` AND A FUNCTION `setThemeMode`
+- WHERE I CREATED TWO FUNCTIONS THAT I NAMED SAME AS THE METHODS I CREATED IN `ThemeContext`, THOSE ARE `lightTheme` AND `darkTheme`
+- THEN WRAPPED I MY `App.jsx` FILE WITH THE `<ThemeProvider></ThemeProvider>` CONTEXT
+
+## WORKING ON `ThemeButton` COMPONENT
+
+- HERE I CREATED A `Checkbox` WHICH HAS A `onChange` ATTRIBUTE
+- PASSING A FUNCTION CALLED `onChangeBtn`
+- MADE USE OF MY CUSTOM HOOK FOR CHANGING COLOR THEME I IMPORTED `themeMode`, `darkTheme`, `lightTheme` FROM `useTheme` HOOK
+- WITH THE HELP OF `onChangeBtn` I TARGETED THE CURRENT FROM THE EVENT CHECKED `e.target.checked` STORING IT IN A VARIABLE CALLED `darkModeStaus`
+
+```Code
+if(darkModeStatus) {
+    darkTheme();
+}
+else
+{
+    lightTheme();
+}
+```
